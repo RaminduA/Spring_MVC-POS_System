@@ -1,78 +1,60 @@
+let dashboardContent = $("#dashboardContent");
+let customerContent = $("#customerContent");
+let itemContent = $("#itemContent");
+let placeOrderContent = $("#placeOrderContent");
+
+let linkHome = $("#linkHome");
+let linkCustomer = $("#linkCustomer");
+let linkItem = $("#linkItem");
+let linkPlaceOrder = $("#linkPlaceOrder");
+let linkLogo = $("#linkLogo");
+
+let preloader = $("#js-preloader");
+
+
 $(document).ready(function() {
-    $('#js-preloader').fadeOut(2000);
+    preloader.fadeOut(2000);
+    displayActiveContent(dashboardContent);
 });
 
 
-$("#dashboardContent").css("display","block");
-$("#customerContent").css("display","none");
-$("#itemContent").css("display","none");
-$("#orderContent").css("display","none");
-
-
-$("#linkHome").click(function (){
-    $("#dashboardContent").css("display","block");
-    $("#itemContent").css("display","none");
-    $("#customerContent").css("display","none");
-    $("#orderContent").css("display","none");
-
-    $("#linkHome").removeClass("active");
-    $("#linkCustomer").removeClass("active");
-    $("#linkItem").removeClass("active");
-    $("#linkOrder").removeClass("active");
-    $("#linkHome").addClass("active");
+linkHome.click(function (){
+    displayActiveContent(dashboardContent);
+    focusActiveLink(linkHome);
 });
 
-$("#linkLogo").click(function (){
-    $("#dashboardContent").css("display","block");
-    $("#itemContent").css("display","none");
-    $("#customerContent").css("display","none");
-    $("#orderContent").css("display","none");
-
-    $("#linkHome").removeClass("active");
-    $("#linkCustomer").removeClass("active");
-    $("#linkItem").removeClass("active");
-    $("#linkOrder").removeClass("active");
-    $("#linkHome").addClass("active");
+linkLogo.click(function (){
+    displayActiveContent(dashboardContent);
+    focusActiveLink(linkHome);
 });
 
-$("#linkCustomer").click(function (){
-    $("#customerContent").css("display","block");
-    $("#dashboardContent").css("display","none");
-    $("#itemContent").css("display","none");
-    $("#orderContent").css("display","none");
-
-    $("#linkHome").removeClass("active");
-    $("#linkCustomer").removeClass("active");
-    $("#linkItem").removeClass("active");
-    $("#linkOrder").removeClass("active");
-    $("#linkCustomer").addClass("active");
-
+linkCustomer.click(function (){
+    displayActiveContent(customerContent);
+    focusActiveLink(linkCustomer);
 });
 
-$("#linkItem").click(function (){
-    $("#itemContent").css("display","block");
-    $("#customerContent").css("display","none");
-    $("#dashboardContent").css("display","none");
-    $("#orderContent").css("display","none");
-
-    $("#linkHome").removeClass("active");
-    $("#linkCustomer").removeClass("active");
-    $("#linkItem").removeClass("active");
-    $("#linkOrder").removeClass("active");
-    $("#linkItem").addClass("active");
-
+linkItem.click(function (){
+    displayActiveContent(itemContent);
+    focusActiveLink(linkItem);
 });
 
-$("#linkOrder").click(function (){
-    $("#orderContent").css("display","block");
-    $("#dashboardContent").css("display","none");
-    $("#itemContent").css("display","none");
-    $("#customerContent").css("display","none");
-
-    $("#linkHome").removeClass("active");
-    $("#linkCustomer").removeClass("active");
-    $("#linkItem").removeClass("active");
-    $("#linkOrder").removeClass("active");
-    $("#linkOrder").addClass("active");
-
+linkPlaceOrder.click(function (){
+    displayActiveContent(placeOrderContent);
+    focusActiveLink(linkPlaceOrder);
 });
+
+function displayActiveContent(activeContent) {
+    dashboardContent.css("display","none");
+    customerContent.css("display","none");
+    itemContent.css("display","none");
+    placeOrderContent.css("display","none");
+    activeContent.css("display","block");
+}
+
+function focusActiveLink(activeLink) {
+    linkHome.removeClass("active");
+    linkCustomer.removeClass("active");
+    linkItem.removeClass("active");
+    linkPlaceOrder.removeClass("active");
+    activeLink.addClass("active");
+}

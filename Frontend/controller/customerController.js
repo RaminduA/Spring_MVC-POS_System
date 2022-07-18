@@ -17,7 +17,7 @@ let txtCusContact = $("#txtCusContact");
 let cmbOrderCusId = $("#cmbOrderCustId");
 let tblCustomer = $("#customer-table");
 
-
+const base_url = "http://localhost:8080/13_Model_Mapper_war/customer/";
 
 txtCusID.keyup(function (event) {
     validateCustId();
@@ -53,23 +53,20 @@ btnCusSearch.click(function () {
     clearAllCustomerFields();
 
     $.ajax({
-        url:"http://localhost:8080/10_Spring_With_Maven_war/customer/"+txtCusSearch.val(),
+        url:base_url+txtCusSearch.val(),
         method:"GET",
         dataType:"json",
         success:function (jsonResp) {
-            loadCustomerToFields(jsonResp);
-            /*if(jsonResp.status===200){
+            if(jsonResp.status===200){
                 loadCustomerToFields(jsonResp.data);
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
-            }*/
+            }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
@@ -94,28 +91,25 @@ btnCusSave.click(function () {
     let jsonReq = {id: txtCusID.val(),name: txtCusName.val(),address: txtCusAddress.val(),contact: txtCusContact.val()};
 
     $.ajax({
-        url:"http://localhost:8080/10_Spring_With_Maven_war/customer",
+        url:base_url,
         method:"POST",
         contentType:"application/json",
         //JSON.stringify() method converts a js object to a valid json string
         data:JSON.stringify(jsonReq),
         success:function (jsonResp) {
-            alert(jsonResp);
-            loadAllCustomers();
-            /*if(jsonResp.status===200){
+            if(jsonResp.status===200){
                 alert(jsonResp.message);
                 loadAllCustomers();
+                clearAllCustomerFields();
                 //setCustomerCombo();
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
-            }*/
+            }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
@@ -128,27 +122,24 @@ btnCusUpdate.click(function () {
     let jsonReq = {id: txtCusID.val(),name: txtCusName.val(),address: txtCusAddress.val(),contact: txtCusContact.val()};
 
     $.ajax({
-        url:"http://localhost:8080/10_Spring_With_Maven_war/customer",
+        url:base_url,
         method:"PUT",
         contentType:"application/json",
         data:JSON.stringify(jsonReq),
         success:function (jsonResp) {
-            alert(jsonResp);
-            loadAllCustomers();
-            /*if(jsonResp.status===200){
+            if(jsonResp.status===200){
                 alert(jsonResp.message);
                 loadAllCustomers();
+                clearAllCustomerFields();
                 //setCustomerCombo();
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
-            }*/
+            }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
@@ -159,26 +150,23 @@ btnCusUpdate.click(function () {
 btnCusDelete.click(function () {
 
     $.ajax({
-        url:"http://localhost:8080/10_Spring_With_Maven_war/customer/"+txtCusID.val(),
+        url:base_url+txtCusID.val(),
         method:"DELETE",
         contentType:"application/json",
         success:function (jsonResp) {
-            alert(jsonResp);
-            loadAllCustomers();
-            /*if(jsonResp.status===200){
+            if(jsonResp.status===200){
                 alert(jsonResp.message);
                 loadAllCustomers();
+                clearAllCustomerFields();
                 //setCustomerCombo();
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
-            }*/
+            }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
@@ -251,28 +239,21 @@ function clearAllCustomerFields() {
 
 function loadAllCustomers() {
 
-    let jsonReq = {option : 'GET-ALL', data : 'EMPTY'}
-
     $.ajax({
-        url:"http://localhost:8080/10_Spring_With_Maven_war/customer",
+        url:base_url,
         method:"GET",
         contentType:"application/json",
-        dataType:"json",
-        data:jsonReq,
         success:function (jsonResp) {
-            /*if(jsonResp.status===200){
+            if(jsonResp.status===200){
                 loadCustomerTable(jsonResp.data);
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
-            }*/
-            loadCustomerTable(jsonResp);
+            }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob) {
+            alert(ob.responseJSON.message);
         }
     });
 
