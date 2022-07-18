@@ -13,9 +13,9 @@ import java.util.List;
 @ToString
 public class OrderDTO {
     private String id;
-    private String customerId;
     private String date;
     private String time;
     private double cost;
+    private CustomerDTO customer;
     private List<OrderDetailDTO> detailList;
 }
