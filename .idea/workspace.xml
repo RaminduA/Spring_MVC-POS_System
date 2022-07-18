@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="97d1027b-4aaf-45f4-8fe8-9608c28428de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,7 @@
       <workItem from="1657968657467" duration="1388000" />
       <workItem from="1657973150464" duration="610000" />
       <workItem from="1657978786502" duration="2958000" />
-      <workItem from="1658081000036" duration="5774000" />
+      <workItem from="1658081000036" duration="6933000" />
     </task>
     <servers />
   </component>
