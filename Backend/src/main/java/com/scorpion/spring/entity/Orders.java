@@ -12,16 +12,17 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-public class Order {
+public class Orders {
     @Id
     private String id;
-    private String customerId;
     private String date;
     private String time;
     private double cost;
 
-    @ManyToOne
+    @ManyToOne(cascade={CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name="customerId", referencedColumnName="id", nullable=false)
     private Customer customer;
-    @OneToMany(mappedBy="order",cascade=CascadeType.ALL)
-    private List<OrderDetail> detailList = new ArrayList<>();
+
+    @OneToMany(mappedBy="order", cascade=CascadeType.ALL)
+    private List<OrderDetail> detailList;
 }

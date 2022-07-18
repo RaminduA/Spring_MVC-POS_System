@@ -20,7 +20,4 @@ public class Item {
     private String name;
     private double price;
     private int quantity;
-
-    @OneToMany(mappedBy="item")
-    private List<OrderDetail> orderList = new ArrayList<>();
 }

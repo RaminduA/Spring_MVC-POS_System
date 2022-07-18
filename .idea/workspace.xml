@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Backend:war" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="97d1027b-4aaf-45f4-8fe8-9608c28428de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/entity/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/repository/OrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/scorpion/spring/repository/OrderRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,6 +63,80 @@
       <recent name="C:\Users\RAMINDU\Desktop\Advanced API Development\Spring Maven POS System\Backend\src\main\webapp" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 8.5.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.78" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Backend:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/Backend" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Spring_Maven_POS_System" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="59015" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Backend:war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -70,7 +152,7 @@
       <workItem from="1657968657467" duration="1388000" />
       <workItem from="1657973150464" duration="610000" />
       <workItem from="1657978786502" duration="2958000" />
-      <workItem from="1658081000036" duration="6933000" />
+      <workItem from="1658081000036" duration="14134000" />
     </task>
     <servers />
   </component>
@@ -78,18 +160,46 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="665" y="320" width="351" height="224" key="#Assign_Data_Sources" timestamp="1658179817798">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="665" y="320" width="351" height="224" key="#Assign_Data_Sources/0.0.1536.864@0.0.1536.864" timestamp="1658179817798" />
     <state x="249" y="7" key="#Project_Structure" timestamp="1657954649969">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="249" y="7" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1657954649969" />
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1658156033746">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1658156033746" />
     <state x="574" y="137" key="#com.intellij.ide.util.MemberChooser" timestamp="1657955381245">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="137" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1657955381245" />
+    <state x="520" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1658156374490">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="520" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1658156374490" />
     <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1657953871380">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1657953871380" />
+    <state width="1024" height="223" key="GridCell.Tab.0.bottom" timestamp="1658156109440">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1024" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1658156109440" />
+    <state width="1024" height="223" key="GridCell.Tab.0.center" timestamp="1658156109440">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1024" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1658156109440" />
+    <state width="1024" height="223" key="GridCell.Tab.0.left" timestamp="1658156109440">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1024" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1658156109440" />
+    <state width="1024" height="223" key="GridCell.Tab.0.right" timestamp="1658156109440">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1024" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1658156109440" />
     <state x="209" y="115" key="new project wizard" timestamp="1657953951134">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
