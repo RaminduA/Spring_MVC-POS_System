@@ -3,20 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="97d1027b-4aaf-45f4-8fe8-9608c28428de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/bootstrap/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/images/image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/images/video.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/jQuery/jquery-3.6.0.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/js/spa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/moment/moment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/assets/styles/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/controller/customerController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/controller/itemController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/controller/orderController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +13,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -55,6 +42,7 @@
       <recent name="com.scorpion.spring.config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.scorpion.spring.repository" />
       <recent name="com.scorpion.spring.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -79,7 +67,7 @@
       <workItem from="1657968657467" duration="1388000" />
       <workItem from="1657973150464" duration="610000" />
       <workItem from="1657978786502" duration="2958000" />
-      <workItem from="1658081000036" duration="4607000" />
+      <workItem from="1658081000036" duration="5774000" />
     </task>
     <servers />
   </component>
