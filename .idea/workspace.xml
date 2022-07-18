@@ -66,15 +66,15 @@
   </component>
   <component name="RunManager" selected="JUnit.CustomerRepoTest.getAllIds">
     <configuration name="CustomerRepoTest.getAllIds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Backend" />
+      <module name="13_Model_Mapper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.scorpion.spring.repository.*" />
+          <option name="PATTERN" value="com.scorpion.spring.service.impl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.scorpion.spring.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.scorpion.spring.repository.CustomerRepoTest" />
+      <option name="PACKAGE_NAME" value="com.scorpion.spring.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.scorpion.spring.service.impl.CustomerRepoTest" />
       <option name="METHOD_NAME" value="getAllIds" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -82,15 +82,15 @@
       </method>
     </configuration>
     <configuration name="ItemRepoTest.getAllCodes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Backend" />
+      <module name="13_Model_Mapper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.scorpion.spring.repository.*" />
+          <option name="PATTERN" value="com.scorpion.spring.service.impl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.scorpion.spring.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.scorpion.spring.repository.ItemRepoTest" />
+      <option name="PACKAGE_NAME" value="com.scorpion.spring.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.scorpion.spring.service.impl.ItemRepoTest" />
       <option name="METHOD_NAME" value="getAllCodes" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
