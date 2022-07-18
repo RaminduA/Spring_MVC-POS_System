@@ -26,5 +26,5 @@ public class OrderDetail {
 
     @ManyToOne
     @JoinColumn(name="itemCode", referencedColumnName="code", insertable=false, updatable=false)
-    private Item items;
+    private Item item;
 }
