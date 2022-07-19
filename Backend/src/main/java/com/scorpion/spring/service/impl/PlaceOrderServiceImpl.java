@@ -9,7 +9,6 @@ import com.scorpion.spring.entity.Orders;
 import com.scorpion.spring.repository.CustomerRepo;
 import com.scorpion.spring.repository.ItemRepo;
 import com.scorpion.spring.repository.OrderRepo;
-import com.scorpion.spring.repository.OrderDetailRepo;
 import com.scorpion.spring.service.PlaceOrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +21,19 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
     ItemRepo itemRepo;
     @Autowired
     OrderRepo orderRepo;
-    @Autowired
-    OrderDetailRepo detailRepo;
 
     @Autowired
     ModelMapper modelMapper;
 
     @Override
     public String getOrderId() {
-        return null;
+        Orders top = orderRepo.findTopByOrderByIdDesc();
+        if(top!=null){
+            Integer index = Integer.getInteger(top.getId().split("-")[1]);
+            ++index;
+            return index<10 ? "O-00000"+index : index<100 ? "O-0000"+index : index<1000 ? "O-000"+index : index<10000 ? "O-00"+index : index<100000 ? "O-0"+index : "O-"+index;
+        }
+        return "O-000001";
     }
 
     @Override
