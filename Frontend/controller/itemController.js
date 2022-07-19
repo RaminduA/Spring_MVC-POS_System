@@ -206,7 +206,7 @@ function setItemCombo() {
         success:function (jsonResp) {
             if(jsonResp.status===200){
                 for (let i=0; i<jsonResp.data.length; i++) {
-                    let code=jsonResp.data[i].code;
+                    let code=jsonResp.data[i];
                     cmbOrderItemCode.append(new Option(code, code));
                 }
             }else if(jsonResp.status===500){

@@ -206,7 +206,7 @@ function setCustomerCombo() {
         success:function (jsonResp) {
             if(jsonResp.status===200){
                 for (let i=0; i<jsonResp.data.length; i++) {
-                    let id=jsonResp.data[i].id;
+                    let id=jsonResp.data[i];
                     cmbOrderCusId.append(new Option(id, id));
                 }
             }else if(jsonResp.status===500){

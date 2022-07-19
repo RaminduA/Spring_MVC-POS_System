@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/controller/customerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/controller/customerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/controller/itemController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/controller/itemController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/controller/placeOrderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/controller/placeOrderController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,8 +236,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlaceOrderServiceImplTest.testIndex" />
         <item itemvalue="JUnit.PlaceOrderServiceImplTest.getOrderId" />
+        <item itemvalue="JUnit.PlaceOrderServiceImplTest.testIndex" />
         <item itemvalue="JUnit.PlaceOrderServiceImplTest.getCustomer" />
         <item itemvalue="JUnit.CustomerRepoTest" />
         <item itemvalue="JUnit.ItemRepoTest" />
@@ -260,7 +259,7 @@
       <workItem from="1657968657467" duration="1388000" />
       <workItem from="1657973150464" duration="610000" />
       <workItem from="1657978786502" duration="2958000" />
-      <workItem from="1658081000036" duration="38762000" />
+      <workItem from="1658081000036" duration="41813000" />
     </task>
     <servers />
   </component>
@@ -296,22 +295,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1657953871380" />
-    <state width="1268" height="223" key="GridCell.Tab.0.bottom" timestamp="1658246324542">
+    <state width="1268" height="223" key="GridCell.Tab.0.bottom" timestamp="1658248990786">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1268" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1658246324542" />
-    <state width="1268" height="223" key="GridCell.Tab.0.center" timestamp="1658246324542">
+    <state width="1268" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1658248990786" />
+    <state width="1268" height="223" key="GridCell.Tab.0.center" timestamp="1658248990785">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1268" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1658246324542" />
-    <state width="1268" height="223" key="GridCell.Tab.0.left" timestamp="1658246324542">
+    <state width="1268" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1658248990785" />
+    <state width="1268" height="223" key="GridCell.Tab.0.left" timestamp="1658248990785">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1268" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1658246324542" />
-    <state width="1268" height="223" key="GridCell.Tab.0.right" timestamp="1658246324542">
+    <state width="1268" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1658248990785" />
+    <state width="1268" height="223" key="GridCell.Tab.0.right" timestamp="1658248990785">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1268" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1658246324542" />
+    <state width="1268" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1658248990785" />
     <state x="534" y="249" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1658232419949">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
