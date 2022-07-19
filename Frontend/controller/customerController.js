@@ -17,7 +17,7 @@ let txtCusContact = $("#txtCusContact");
 let cmbOrderCusId = $("#cmbOrderCustId");
 let tblCustomer = $("#customer-table");
 
-const base_url = "http://localhost:8080/13_Model_Mapper_war/customer/";
+const customer_base_url = "http://localhost:8080/Backend/customer/";
 
 txtCusID.keyup(function (event) {
     validateCustId();
@@ -46,14 +46,14 @@ txtCusContact.keyup(function (event) {
 $(document).ready(function() {
     loadAllCustomers();
     //loadFromCustomerTable();
-    //setCustomerCombo();
+    setCustomerCombo();
 });
 
 btnCusSearch.click(function () {
     clearAllCustomerFields();
 
     $.ajax({
-        url:base_url+txtCusSearch.val(),
+        url:customer_base_url+txtCusSearch.val(),
         method:"GET",
         dataType:"json",
         success:function (jsonResp) {
@@ -91,17 +91,16 @@ btnCusSave.click(function () {
     let jsonReq = {id: txtCusID.val(),name: txtCusName.val(),address: txtCusAddress.val(),contact: txtCusContact.val()};
 
     $.ajax({
-        url:base_url,
+        url:customer_base_url,
         method:"POST",
         contentType:"application/json",
-        //JSON.stringify() method converts a js object to a valid json string
         data:JSON.stringify(jsonReq),
         success:function (jsonResp) {
             if(jsonResp.status===200){
                 alert(jsonResp.message);
                 loadAllCustomers();
                 clearAllCustomerFields();
-                //setCustomerCombo();
+                setCustomerCombo();
             }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
@@ -122,7 +121,7 @@ btnCusUpdate.click(function () {
     let jsonReq = {id: txtCusID.val(),name: txtCusName.val(),address: txtCusAddress.val(),contact: txtCusContact.val()};
 
     $.ajax({
-        url:base_url,
+        url:customer_base_url,
         method:"PUT",
         contentType:"application/json",
         data:JSON.stringify(jsonReq),
@@ -131,7 +130,7 @@ btnCusUpdate.click(function () {
                 alert(jsonResp.message);
                 loadAllCustomers();
                 clearAllCustomerFields();
-                //setCustomerCombo();
+                setCustomerCombo();
             }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
@@ -150,7 +149,7 @@ btnCusUpdate.click(function () {
 btnCusDelete.click(function () {
 
     $.ajax({
-        url:base_url+txtCusID.val(),
+        url:customer_base_url+txtCusID.val(),
         method:"DELETE",
         contentType:"application/json",
         success:function (jsonResp) {
@@ -158,7 +157,7 @@ btnCusDelete.click(function () {
                 alert(jsonResp.message);
                 loadAllCustomers();
                 clearAllCustomerFields();
-                //setCustomerCombo();
+                setCustomerCombo();
             }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
@@ -201,7 +200,7 @@ function setCustomerCombo() {
     cmbOrderCusId.append(new Option("Customer ID", ""));
 
     $.ajax({
-        url:"http://localhost:8080/Backend/place-order?option=GET-ALL-CUSTOMER-IDS",
+        url:customer_base_url+"ids",
         method:"GET",
         contentType:"application/json",
         success:function (jsonResp) {
@@ -210,16 +209,14 @@ function setCustomerCombo() {
                     let id=jsonResp.data[i].id;
                     cmbOrderCusId.append(new Option(id, id));
                 }
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
@@ -240,7 +237,7 @@ function clearAllCustomerFields() {
 function loadAllCustomers() {
 
     $.ajax({
-        url:base_url,
+        url:customer_base_url,
         method:"GET",
         contentType:"application/json",
         success:function (jsonResp) {

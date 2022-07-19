@@ -29,12 +29,12 @@ txtOrderItemPrice.prop('disabled', true);
 txtOrderItemQty.prop('disabled', true);
 txtSubTotal.prop('disabled', true);
 
-
+const place_order_base_url = "http://localhost:8080/Backend/place-order/";
 
 
 $(document).ready(function() {
     playDT();
-    //setOrderId();
+    setOrderId();
 });
 
 cmbOrderCusId.on('change', function() {
@@ -44,7 +44,7 @@ cmbOrderCusId.on('change', function() {
         txtOrderCusContact.val("");
     }else{
         $.ajax({
-            url:"http://localhost:8080/Backend/place-order?option=GET-CUSTOMER&id="+$(this).val(),
+            url:place_order_base_url+"customer/"+$(this).val(),
             method:"GET",
             contentType:"application/json",
             success:function (jsonResp) {
@@ -52,16 +52,14 @@ cmbOrderCusId.on('change', function() {
                     txtOrderCusName.val(jsonResp.data.name);
                     txtOrderCusAddress.val(jsonResp.data.address);
                     txtOrderCusContact.val(jsonResp.data.contact);
-                }else if(jsonResp.status===404){
+                }else if(jsonResp.status===500){
                     alert(jsonResp.message);
                 }else{
                     alert(jsonResp.data);
                 }
             },
-            error:function (ob, textStatus, error) {
-                console.log(ob);
-                console.log(textStatus);
-                console.log(error);
+            error:function (ob){
+                alert(ob.responseJSON.message);
             }
         });
     }
@@ -77,7 +75,7 @@ cmbOrderItemCode.on('change', function() {
         txtSubTotal.val("");
     }else{
         $.ajax({
-            url:"http://localhost:8080/Backend/place-order?option=GET-ITEM&code="+$(this).val(),
+            url:place_order_base_url+"item/"+$(this).val(),
             method:"GET",
             contentType:"application/json",
             success:function (jsonResp) {
@@ -88,16 +86,14 @@ cmbOrderItemCode.on('change', function() {
                     txtQuantity.val("");
                     txtQuantity.css('border','1px solid #ced4da');
                     txtSubTotal.val("");
-                }else if(jsonResp.status===404){
+                }else if(jsonResp.status===500){
                     alert(jsonResp.message);
                 }else{
                     alert(jsonResp.data);
                 }
             },
-            error:function (ob, textStatus, error) {
-                console.log(ob);
-                console.log(textStatus);
-                console.log(error);
+            error:function (ob){
+                alert(ob.responseJSON.message);
             }
         });
     }
@@ -192,7 +188,7 @@ btnPurchaseOrder.click(function () {
         let jsonReq = {option : "", data : {order_id : order_id, customer_id : customer_id, date : date, time : time, cost : cost, detail_list : detail_list}};
 
         $.ajax({
-            url:"http://localhost:8080/Backend/place-order",
+            url:place_order_base_url,
             method:"POST",
             contentType:"application/json",
             data:JSON.stringify(jsonReq),
@@ -204,16 +200,14 @@ btnPurchaseOrder.click(function () {
                     setTotalPurchase();
                     clearAllOrderFields();
                     loadAllCartObjects();
-                }else if(jsonResp.status===404){
+                }else if(jsonResp.status===500){
                     alert(jsonResp.message);
                 }else{
                     alert(jsonResp.data);
                 }
             },
-            error:function (ob, textStatus, error) {
-                console.log(ob);
-                console.log(textStatus);
-                console.log(error);
+            error:function (ob){
+                alert(ob.responseJSON.message);
             }
         });
 
@@ -258,7 +252,7 @@ function setTotalPurchase() {
 function setQuantityOnHand() {
 
     $.ajax({
-        url:"http://localhost:8080/Backend/place-order?option=GET-ITEM&code="+cmbOrderItemCode.val(),
+        url:place_order_base_url+"item/"+cmbOrderItemCode.val(),
         method:"GET",
         contentType:"application/json",
         success:function (jsonResp) {
@@ -275,10 +269,8 @@ function setQuantityOnHand() {
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
@@ -311,22 +303,20 @@ function playDT(){
 function setOrderId() {
 
     $.ajax({
-        url:"http://localhost:8080/Backend/place-order?option=GET-ORDER-ID",
+        url:place_order_base_url+"id",
         method:"GET",
         contentType:"application/json",
         success:function (jsonResp) {
             if(jsonResp.status===200){
-                txtOrderId.text(jsonResp.data.id);
-            }else if(jsonResp.status===404){
+                txtOrderId.text(jsonResp.data);
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 

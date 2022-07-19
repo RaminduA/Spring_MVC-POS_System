@@ -17,7 +17,7 @@ let txtItemQty = $("#txtItemQty");
 let cmbOrderItemCode = $("#cmbOrderItemCode");
 let tblItem = $("#item-table");
 
-
+const item_base_url = "http://localhost:8080/Backend/item/";
 
 txtItemCode.keyup(function (event) {
     validateItemCode();
@@ -43,39 +43,37 @@ txtItemQty.keyup(function (event) {
 
 
 
-/*$(document).ready(function() {
+$(document).ready(function() {
     loadAllItems();
-    loadFromItemTable();
+    //loadFromItemTable();
     setItemCombo();
-});*/
+});
 
 btnItemSearch.click(function () {
     clearAllItemFields();
 
     $.ajax({
-        url:"http://localhost:8080/Backend/item?option=SEARCH&code="+txtItemSearch.val(),
+        url:item_base_url+txtItemSearch.val(),
         method:"GET",
-        contentType:"application/json",
+        dataType:"json",
         success:function (jsonResp) {
             if(jsonResp.status===200){
                 loadItemToFields(jsonResp.data);
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
     function loadItemToFields(data) {
         txtItemCode.val(data.code);
         txtItemName.val(data.name);
-        txtItemPrice.val(data.unit_price);
+        txtItemPrice.val(data.price);
         txtItemQty.val(data.quantity);
 
         validateItemCode();
@@ -84,16 +82,16 @@ btnItemSearch.click(function () {
         validateItemQty();
     }
 
-    loadFromItemTable();
+    //loadFromItemTable();
 
 });
 
 btnItemSave.click(function () {
 
-    let jsonReq = {option : "", data : {code : txtItemCode.val(), name : txtItemName.val(), unit_price : txtItemPrice.val(), quantity : txtItemQty.val()}}
+    let jsonReq = {code : txtItemCode.val(), name : txtItemName.val(), price : txtItemPrice.val(), quantity : txtItemQty.val()};
 
     $.ajax({
-        url:"http://localhost:8080/Backend/item",
+        url:item_base_url,
         method:"POST",
         contentType:"application/json",
         data:JSON.stringify(jsonReq),
@@ -101,30 +99,29 @@ btnItemSave.click(function () {
             if(jsonResp.status===200){
                 alert(jsonResp.message);
                 loadAllItems();
+                clearAllItemFields();
                 setItemCombo();
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
-    loadFromItemTable();
+    //loadFromItemTable();
 
 });
 
 btnItemUpdate.click(function () {
 
-    let jsonReq = {option : "", data : {code : txtItemCode.val(), name : txtItemName.val(), unit_price : txtItemPrice.val(), quantity : txtItemQty.val()}}
+    let jsonReq = {code : txtItemCode.val(), name : txtItemName.val(), price : txtItemPrice.val(), quantity : txtItemQty.val()};
 
     $.ajax({
-        url:"http://localhost:8080/Backend/item",
+        url:item_base_url,
         method:"PUT",
         contentType:"application/json",
         data:JSON.stringify(jsonReq),
@@ -132,52 +129,47 @@ btnItemUpdate.click(function () {
             if(jsonResp.status===200){
                 alert(jsonResp.message);
                 loadAllItems();
+                clearAllItemFields();
                 setItemCombo();
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
-    loadFromItemTable();
+    //loadFromItemTable();
 
 });
 
 btnItemDelete.click(function () {
 
-    let jsonReq = {option : "",data : {code : txtItemCode.val()}}
-
     $.ajax({
-        url:"http://localhost:8080/Backend/item",
+        url:item_base_url+txtItemCode.val(),
         method:"DELETE",
         contentType:"application/json",
-        data:JSON.stringify(jsonReq),
         success:function (jsonResp) {
             if(jsonResp.status===200){
                 alert(jsonResp.message);
                 loadAllItems();
+                clearAllItemFields();
                 setItemCombo();
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
-    loadFromItemTable();
+    //loadFromItemTable();
 
 });
 
@@ -186,14 +178,14 @@ function loadFromItemTable() {
     $("#item-table>tr:not(.spacer)").click(function () {
         let code = $(this).children(":eq(1)").text();
         let name = $(this).children(":eq(2)").text();
-        let unit_price = $(this).children(":eq(3)").text();
+        let price = $(this).children(":eq(3)").text();
         let quantity = $(this).children(":eq(4)").text();
 
-        console.log(code, name, unit_price, quantity);
+        console.log(code, name, price, quantity);
 
         txtItemCode.val(code);
         txtItemName.val(name);
-        txtItemPrice.val(unit_price);
+        txtItemPrice.val(price);
         txtItemQty.val(quantity);
 
         validateItemCode();
@@ -208,7 +200,7 @@ function setItemCombo() {
     cmbOrderItemCode.append(new Option("Item Code", ""));
 
     $.ajax({
-        url:"http://localhost:8080/Backend/place-order?option=GET-ALL-ITEM-CODES",
+        url:item_base_url+"codes",
         method:"GET",
         contentType:"application/json",
         success:function (jsonResp) {
@@ -217,16 +209,14 @@ function setItemCombo() {
                     let code=jsonResp.data[i].code;
                     cmbOrderItemCode.append(new Option(code, code));
                 }
-            }else if(jsonResp.status===404){
+            }else if(jsonResp.status===500){
                 alert(jsonResp.message);
             }else{
                 alert(jsonResp.data);
             }
         },
-        error:function (ob, textStatus, error) {
-            console.log(ob);
-            console.log(textStatus);
-            console.log(error);
+        error:function (ob){
+            alert(ob.responseJSON.message);
         }
     });
 
@@ -247,7 +237,7 @@ function clearAllItemFields() {
 function loadAllItems() {
 
     $.ajax({
-        url:"http://localhost:8080/Backend/item?option=GET-ALL",
+        url:item_base_url,
         method:"GET",
         contentType:"application/json",
         success:function (jsonResp) {
