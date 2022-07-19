@@ -12,18 +12,22 @@ import com.scorpion.spring.repository.OrderRepo;
 import com.scorpion.spring.service.PlaceOrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional
 public class PlaceOrderServiceImpl implements PlaceOrderService {
 
     @Autowired
-    CustomerRepo customerRepo;
+    private CustomerRepo customerRepo;
     @Autowired
-    ItemRepo itemRepo;
+    private ItemRepo itemRepo;
     @Autowired
-    OrderRepo orderRepo;
+    private OrderRepo orderRepo;
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     @Override
     public String getOrderId() {
