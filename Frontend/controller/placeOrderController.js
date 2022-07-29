@@ -81,7 +81,7 @@ cmbOrderItemCode.on('change', function() {
             success:function (jsonResp) {
                 if(jsonResp.status===200){
                     txtOrderItemName.val(jsonResp.data.name);
-                    txtOrderItemPrice.val(jsonResp.data.unit_price);
+                    txtOrderItemPrice.val(jsonResp.data.price);
                     setQuantityOnHand();
                     txtQuantity.val("");
                     txtQuantity.css('border','1px solid #ced4da');
@@ -166,26 +166,25 @@ btnPurchaseOrder.click(function () {
 
     }else{
 
-        let order_id = txtOrderId.text();
-        let customer_id = cmbOrderCusId.val();
+        let id = txtOrderId.text();
         let dt = new Date();
         let date = moment(dt).format("yyyy-MM-DD");
         let time = moment(dt).format("hh:mm:ss A");
         let cost = txtTotal.text();
-
-        let detail_list = [];
+        let customer = {id : cmbOrderCusId.val()};
+        let detailList = [];
 
         for (let i=0; i<cart.length; i++){
-            let item_code = cart[i].code;
-            let unit_price = cart[i].unit_price;
+            let itemCode = cart[i].code;
+            let unitPrice = cart[i].unit_price;
             let quantity = cart[i].quantity;
-            let price = cart[i].subtotal;
+            let subtotal = cart[i].subtotal;
 
-            let order_detail = {order_id : order_id, item_code : item_code, unit_price : unit_price, quantity : quantity, price : price};
-            detail_list.push(order_detail);
+            let order_detail = {orderId : id, itemCode : itemCode, unitPrice : unitPrice, quantity : quantity, subtotal : subtotal};
+            detailList.push(order_detail);
         }
 
-        let jsonReq = {option : "", data : {order_id : order_id, customer_id : customer_id, date : date, time : time, cost : cost, detail_list : detail_list}};
+        let jsonReq = {id : id, date : date, time : time, cost : cost, customer : customer, detailList : detailList};
 
         $.ajax({
             url:place_order_base_url,
